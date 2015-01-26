@@ -10,5 +10,7 @@ class Game
   property :rating, Integer
 
   has n, :company
+  has n, :developer
+  has n, :comment
 
 end
