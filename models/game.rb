@@ -6,7 +6,7 @@ class Game
   property :description, Text
   property :tags, String
   property :language, String
-  property :release_date, Date
+  property :release_date, String
   property :rating, Integer
 
   has n, :company
