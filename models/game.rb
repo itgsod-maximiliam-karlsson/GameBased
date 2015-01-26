@@ -4,11 +4,11 @@ class Game
   property :id, Serial
   property :name, String
   property :description, Text
-  property :tags
-  property :language
-  property :release_date
-  property :rating
-  
-  has n, :something
+  property :tags, String
+  property :language, String
+  property :release_date, Date
+  property :rating, Integer
+
+  has n, :company
 
 end
