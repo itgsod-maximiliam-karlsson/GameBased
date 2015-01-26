@@ -1,13 +1,13 @@
 class User
+  include DataMapper::Resource
 
-  def initialize(first_name, last_name)
-    @first_name = first_name
-    @last_name = last_name
-  end
+  property :id, Serial
+  property :username, String
+  property :email, String
+  property :password, Text
+  property :membership, String
 
-  def name
-    "#{@first_name} #{@last_name}"
-  end
-
+  has n, :comment
+  has n, :user_role
 
 end
