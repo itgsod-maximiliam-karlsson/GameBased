@@ -1,7 +1,7 @@
 class Seeder
 
   def self.seed
-    Seeder.game
+    game
   end
 
   def self.game

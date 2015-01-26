@@ -6,5 +6,5 @@ class Developer
   property :description, Text
 
   has n, :game
-  has n, :developer_role
+  # has n, :developer_role
 end

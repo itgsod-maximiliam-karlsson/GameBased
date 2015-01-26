@@ -8,6 +8,6 @@ class User
   property :membership, String
 
   has n, :comment
-  has n, :user_role
+  # has n, :user_role
 
 end
