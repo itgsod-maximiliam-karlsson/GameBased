@@ -4,13 +4,15 @@ class Game
   property :id, Serial
   property :name, String
   property :description, Text
-  property :tags, String
-  property :language, String
+  property :base_language_id, Integer
   property :release_date, String
   property :rating, Integer
 
   has n, :company_games
   has n, :companies, :through => :company_games
+
+  has n, :translations
+  has n, :languages, :through => :translations
 
   has n, :comments
 end
