@@ -8,5 +8,5 @@ class Comment
   property :dislike, Integer
 
   belongs_to :game
-  has n, :user
+  belongs_to :user
 end

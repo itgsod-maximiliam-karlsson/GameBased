@@ -1,4 +1,4 @@
-class User_role
+class UserRole
   include DataMapper::Resource
 
   property :id, Serial
@@ -7,5 +7,5 @@ class User_role
   property :type, String
   property :description, Text
 
-  belongs_to :user
+  has 1, :user
 end

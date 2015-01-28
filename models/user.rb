@@ -7,7 +7,6 @@ class User
   property :password, Text
   property :membership, String
 
-  has n, :comment
-  # has n, :user_role
-
+  has n, :comments
+  has 1, :user_role
 end

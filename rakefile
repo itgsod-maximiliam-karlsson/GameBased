@@ -16,7 +16,7 @@ namespace :db do
     # Add seed data to database
     require './db/seed'
 
-    Seeder
+    Seeder.seed
   end
 end
 

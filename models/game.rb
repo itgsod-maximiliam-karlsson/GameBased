@@ -9,8 +9,8 @@ class Game
   property :release_date, String
   property :rating, Integer
 
-  has n, :company
-  has n, :developer
-  has n, :comment
+  has n, :company_games
+  has n, :companies, :through => :company_games
 
+  has n, :comments
 end
