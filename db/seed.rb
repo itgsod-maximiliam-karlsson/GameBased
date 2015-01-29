@@ -4,6 +4,8 @@ class Seeder
     self.games
     self.languages
     self.translations
+    self.tags
+    self.taggings
   end
 
   def self.games
@@ -29,5 +31,20 @@ class Seeder
     Translation.create(game_id: 2, language_id: 2)
     Translation.create(game_id: 2, language_id: 3)
     Translation.create(game_id: 2, language_id: 5)
+  end
+
+  def self.tags
+    Tag.create(name: 'FPS')
+    Tag.create(name: 'MMO')
+    Tag.create(name: 'RPG')
+    Tag.create(name: 'JRPG')
+  end
+
+  def self.taggings
+    Tagging.create(game_id: 1, tag_id: 1)
+    Tagging.create(game_id: 1, tag_id: 3)
+
+    Tagging.create(game_id: 2, tag_id: 2)
+    Tagging.create(game_id: 2, tag_id: 4)
   end
 end

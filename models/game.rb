@@ -14,5 +14,8 @@ class Game
   has n, :translations
   has n, :languages, :through => :translations
 
+  has n, :taggings
+  has n, :tags, :through => :taggings
+
   has n, :comments
 end
