@@ -57,4 +57,4 @@ class Seeder
   def self.users
     User.create(username: 'xXdragonslayerXx', email: 'thatguy@gmail.com', password: 'mmh', membership: 'user', user_role_id: 1)
   end
-end
+end 
