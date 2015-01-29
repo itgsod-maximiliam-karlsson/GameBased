@@ -47,4 +47,12 @@ class Seeder
     Tagging.create(game_id: 2, tag_id: 2)
     Tagging.create(game_id: 2, tag_id: 4)
   end
+
+  def self.users
+    User.create(username: 'xXdragonslayerXx', email:'thatguy@gmail.com', password: 'mmh', membership: 'user')
+    User.create(username: 'xXdragonslayer2Xx', email:'thatguy2@gmail.com', password: 'mmh2', membership: 'user')
+    User.create(username: 'xXdragonslayer3Xx', email:'thatguy3@gmail.com', password: 'mmh3', membership: 'user')
+    User.create(username: 'xXdragonslayer4Xx', email:'thatguy4@gmail.com', password: 'mmh4', membership: 'user')
+    User.create(username: 'xXdragonslayer5Xx', email:'thatguy5@gmail.com', password: 'mmh5', membership: 'user')
+  end
 end

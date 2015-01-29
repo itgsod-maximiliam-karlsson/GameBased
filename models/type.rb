@@ -3,7 +3,7 @@ class Type
 
   property :id, Serial
   property :type, String
-  property :descrition, Text
+  property :description, Text
 
   belongs_to :company
 end
