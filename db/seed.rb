@@ -6,6 +6,7 @@ class Seeder
     self.translations
     self.tags
     self.taggings
+    self.users
   end
 
   def self.games
