@@ -8,5 +8,4 @@ class User
   property :membership, String
 
   has n, :comments
-  has 1, :user_role
 end

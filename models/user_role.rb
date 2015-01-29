@@ -7,5 +7,5 @@ class UserRole
   property :type, String
   property :description, Text
 
-  has 1, :user
+  has n, :users
 end
