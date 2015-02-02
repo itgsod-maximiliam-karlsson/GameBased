@@ -2,7 +2,9 @@ class App < Sinatra::Base
   enable :sessions
 
   get '/' do
-    #p User.all
+    @users = User.all
+    slim :index
   end
+
 
 end
