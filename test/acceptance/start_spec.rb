@@ -7,11 +7,11 @@ describe('Start page', :type => :feature) do
   end
 
   it 'responds with successful status' do
-    page.status_code.should == 200
+    expect( page.status_code ).to eq 200
   end
 
   it 'shows the welcome message', :driver => :selenium do
-    page.should have_content 'Hello Sinatra Skeleton!'
+    expect( page ).to have_content 'Hello Sinatra Skeleton!'
   end
 
 end

@@ -1,2 +1,5 @@
+# ignore all JetBrains files
 .idea/**
-Gemfile.lock
+
+# ignore all database files (create & populate db from seed instead)
+db/*.sqlite

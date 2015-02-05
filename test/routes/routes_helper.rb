@@ -1,3 +1,5 @@
+# Configuration for route tests (rake test:routes)
+
 require_relative '../test_helper'
 require 'rack/test'
 
