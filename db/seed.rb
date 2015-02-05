@@ -1,6 +1,6 @@
 class Seeder
 
-  def self.seed
+  def self.seed!
     self.games
     self.languages
     self.translations
