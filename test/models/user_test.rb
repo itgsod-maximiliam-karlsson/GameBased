@@ -6,20 +6,20 @@ describe User do
 
   describe 'creating a user' do
 
-    it 'should require a first name' do
+    it 'should require a username' do
       expect( User.count ).to eq 0
-      User.create(first_name: 'Test', last_name: 'lasttest')
+      User.create(username: 'Test', email: 'test@test.com', password: 'password', membership: 'user', user_role_id: 1)
       expect( User.count ).to eq 1
-      User.create(first_name: 'kalle',last_name: 'korv')
+      User.create(username: 'korv')
       expect( User.count ).to eq 1
 
     end
 
   end
 
-  describe 'name convenience method' do
-    it 'should combine first and last names' do
-      user = User.create(first_name: 'Grill', last_name: 'Korv')
+  describe 'password bcrypt converter' do
+    it 'should check if the password is in plantext' do
+      user = User.create(username: 'Test', email: 'test@test.com', password: 'password', membership: 'user', user_role_id: 1)
       expect( user.name ).to match 'Grill Korv'
     end
   end
