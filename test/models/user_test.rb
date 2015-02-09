@@ -8,9 +8,9 @@ describe User do
 
     it 'should require a first name' do
       expect( User.count ).to eq 0
-      User.create(first_name: 'Test', lastname: 'lasttest')
+      User.create(first_name: 'Test', last_name: 'lasttest')
       expect( User.count ).to eq 1
-      User.create(last_name: 'korv')
+      User.create(first_name: 'kalle',last_name: 'korv')
       expect( User.count ).to eq 1
 
     end
