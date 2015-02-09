@@ -4,8 +4,10 @@ class User
   property :id, Serial
   property :username, String
   property :email, String
-  property :password, Text
+  property :password, BCryptHash
   property :membership, String
 
   has n, :comments
 end
+
+# hur man jämnför(man använder bara strängar): password == '123'
