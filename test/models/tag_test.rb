@@ -8,7 +8,7 @@ describe User do
 
     it 'should require a name' do
       expect( Game.count ).to eq 0
-      Game.create(name: 'cunter stocked')
+      Game.create(name: 'action')
       expect( Game.count ).to eq 1
       Game.create()
       expect( Game.count ).to eq 1
