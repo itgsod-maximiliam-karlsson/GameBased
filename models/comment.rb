@@ -4,8 +4,7 @@ class Comment
   property :id, Serial
   property :type, String
   property :comment, Text
-  property :like, Integer
-  property :dislike, Integer
+  property :points, Integer
 
   belongs_to :game
   belongs_to :user
