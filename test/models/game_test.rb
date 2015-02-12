@@ -34,7 +34,7 @@ describe User do
       expect( Game.count ).to eq 0
       Game.create(name: 'cunter stocked', description: 'this is a game', base_language_id: 1, release_date: '2015-11-11', rating: 1)
       expect( Game.count ).to eq 1
-      Game.create(description: 'this is a game', base_language_id: 1, release_date: '2015-11-11', rating: 1)
+      Game.create(name: 'cunter stocked', description: 'this is a game', base_language_id: 1, rating: 1)
       expect( Game.count ).to eq 1
     end
 
@@ -42,7 +42,7 @@ describe User do
       expect( Game.count ).to eq 0
       Game.create(name: 'cunter stocked', description: 'this is a game', base_language_id: 1, release_date: '2015-11-11', rating: 1)
       expect( Game.count ).to eq 1
-      Game.create(description: 'this is a game', base_language_id: 1, release_date: '2015-11-11', rating: 1)
+      Game.create(name: 'cunter stocked', description: 'this is a game', base_language_id: 1, release_date: '2015-11-11')
       expect( Game.count ).to eq 1
     end
 
