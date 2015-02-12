@@ -1,6 +1,6 @@
 require_relative 'models_helper'
 
-describe User do
+describe Game do
 
   DataMapper.auto_migrate!
 

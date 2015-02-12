@@ -1,6 +1,6 @@
 require_relative 'models_helper'
 
-describe User do
+describe Company do
 
   DataMapper.auto_migrate!
 
