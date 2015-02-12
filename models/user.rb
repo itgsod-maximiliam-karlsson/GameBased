@@ -2,7 +2,7 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :username, String
+  property :username, String, unique: true
   property :email, String
   property :password, BCryptHash
   property :membership, String
