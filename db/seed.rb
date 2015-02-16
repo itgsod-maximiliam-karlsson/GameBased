@@ -50,11 +50,7 @@ class Seeder
     Tagging.create(game_id: 2, tag_id: 4)
   end
 
-  def self.user_roles
-    UserRole.create(permission: 'user', name: 'user', type: 'user', description: 'Can comment and view the database.')
-  end
-
   def self.users
-    User.create(username: 'xXdragonslayerXx', email: 'thatguy@gmail.com', password: 'mmh', membership: 'user', user_role_id: 1)
+    User.create(username: 'xXdragonslayerXx', email: 'thatguy@gmail.com', password: 'mmh')
   end
 end
