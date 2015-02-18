@@ -1,1 +1,31 @@
-div id='container'
+h1 Comments
+-for comment in @comments
+  p= comment.comment
+
+h1 Companies
+-for company in @companies
+  p= company.name
+
+h1 Games
+-for game in @games
+  p= game.name
+
+h1 Languages
+-for language in @languages
+  p= language.name
+
+h1 Roles
+-for role in @roles
+  p= role.description
+
+h1 Tags
+-for tag in @tags
+  p= tag.name
+
+h1 Types
+-for type in @types
+  p= type.type
+
+h1 Users
+-for user in @users
+  p= user.username
