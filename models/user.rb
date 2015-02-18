@@ -7,12 +7,14 @@ class User
   property :password, BCryptHash, required: true
 
   has n, :comments
-  belongs_to :membership
+  belongs_to :role
 
-
-  after :create do
-    Membership.create(user: self, permission: 'user', description: 'Regular user')
+  def self.build(username:, email:, password:)
+    role = Role.first_or_create(permission: 'User', description: 'Descr')
+    self.create(username: username, email: email, password: password, role: role)
   end
+
+
 end
 
 # hur man jämnför(man använder bara strängar): password == '123'

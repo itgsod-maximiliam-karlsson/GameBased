@@ -1,4 +1,4 @@
-class Membership
+class Role
   include DataMapper::Resource
 
   property :id, Serial

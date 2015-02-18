@@ -6,7 +6,7 @@ class Seeder
     self.translations
     self.tags
     self.taggings
-    self.user_roles
+    self.roles
     self.users
   end
 
@@ -48,6 +48,12 @@ class Seeder
 
     Tagging.create(game_id: 2, tag_id: 2)
     Tagging.create(game_id: 2, tag_id: 4)
+  end
+
+  def self.roles
+    Role.create(permission: 'User', description: 'Regular user')
+    Role.create(permission: 'Moderator', description: 'Handles the forum and comments')
+    Role.create(permission: 'Admin', description: 'In charge, access to everything')
   end
 
   def self.users
