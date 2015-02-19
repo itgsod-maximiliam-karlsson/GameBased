@@ -53,23 +53,18 @@ describe User do
       expect( User.count ).to eq 1
     end
 
-    # it 'should require a membership' do
-    #   expect( User.count ).to eq 0
-    #   # user = User.create(username: 'Test', email: 'test@test.com', password: 'password', role_id: 1)
-    #   Membership.create(user: user, )
-    #   expect( User.count ).to eq 1
-    #   User.create(username: 'Test', email: 'test@test.com', password: 'password', role_id: 1)
-    #   expect( User.count ).to eq 1
-    # end
-  #
-  # end
-  #
-  # describe 'password bcrypt converter' do
-  #   it 'should check if the password is in plantext' do
-  #     user = User.create(username: 'Test', email: 'test@test.com', password: 'secret', role_id: 1)
-  #     expect( user.password ).to match 'secret'
-  #   end
-  # end
-
   end
+
+
+  
+  describe 'password bcrypt converter' do
+
+    DataMapper.auto_migrate!
+
+    it 'should check if the password is in bcrypt' do
+      user = User.create(username: 'Test', email: 'test@test.com', password: 'secret', role_id: 1)
+      expect( user.password ).to match 'secret'
+    end
+  end
+
 end

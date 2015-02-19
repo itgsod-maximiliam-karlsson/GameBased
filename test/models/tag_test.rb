@@ -7,11 +7,9 @@ describe Tag do
   describe 'Should create a tag' do
 
     it 'should require a name' do
-      expect( Game.count ).to eq 0
-      Game.create(name: 'action')
-      expect( Game.count ).to eq 1
-      Game.create()
-      expect( Game.count ).to eq 1
+      expect( Tag.count ).to eq 0
+      Tag.create(name: 'action')
+      expect( Tag.count ).to eq 1
     end
 
   end
