@@ -13,5 +13,7 @@ class App < Sinatra::Base
     slim :index
   end
 
-
+  get '/register' do
+    slim :register
+  end
 end
