@@ -2,8 +2,7 @@ class Comment
   include DataMapper::Resource
 
   property :id, Serial
-  property :type, String
-  property :comment, Text
+  property :comment, Text, required: true
   property :points, Integer
 
   belongs_to :game

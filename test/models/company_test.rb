@@ -36,6 +36,5 @@ describe Company do
       expect( company.errors[:description] ).to eq ["Description must not be blank"]
       expect( Company.count ).to eq 1
     end
-
   end
 end
