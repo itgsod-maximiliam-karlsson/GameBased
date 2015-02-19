@@ -2,9 +2,9 @@ class Game
   include DataMapper::Resource
 
   property :id, Serial
-  property :name, String
-  property :description, Text
-  property :base_language_id, Integer
+  property :name, String, required: true, unique: true
+  property :description, Text, required: true
+  property :base_language_id, Integer, required: true
   property :release_date, String
   property :rating, Integer
 

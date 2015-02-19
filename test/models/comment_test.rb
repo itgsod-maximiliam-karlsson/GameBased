@@ -2,9 +2,11 @@ require_relative 'models_helper'
 
 describe Comment do
 
-  DataMapper.auto_migrate!
-
   describe 'create a comment' do
+
+    before do
+      DataMapper.auto_migrate!
+    end
 
     it 'should require type' do
       expect( Comment.count ).to eq 0
