@@ -54,8 +54,6 @@ describe User do
     end
 
   end
-
-
   
   describe 'password bcrypt converter' do
 
