@@ -45,4 +45,9 @@ class App < Sinatra::Base
       end
     end
   end
+
+  get '/termsandservice' do
+    slim :termsandservice
+  end
+
 end
