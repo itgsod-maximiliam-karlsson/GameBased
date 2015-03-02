@@ -33,8 +33,7 @@ class App < Sinatra::Base
         session[:error_msg] = 'Username or email is already in use'
         redirect '/register'
       else
-        account_data = { username: username, email: email,  password: get_password, role_id: 1}
-        user = User.create(account_data)
+        user = User.create( username: username, email: email,  password: get_password)
 
         session[:user_name] = user.username
         session[:user_id] = user.id

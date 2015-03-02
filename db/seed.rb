@@ -57,6 +57,6 @@ class Seeder
   end
 
   def self.users
-    User.create(username: 'xXdragonslayerXx', email: 'thatguy@gmail.com', password: 'mmh')
+    User.create(username: 'xXdragonslayerXx', email: 'thatguy@gmail.com', password: 'mmh', role: Role.first)
   end
 end
