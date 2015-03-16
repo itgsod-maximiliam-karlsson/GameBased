@@ -10,5 +10,3 @@ class User
   belongs_to :role
 
 end
-
-# hur man jämnför(man använder bara strängar): password == '123'
