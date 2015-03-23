@@ -2,6 +2,7 @@ class App < Sinatra::Base
   enable :sessions
 
   get '/' do
+    @games = Game.all
     slim :index
   end
 

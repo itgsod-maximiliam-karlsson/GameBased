@@ -25,6 +25,29 @@ a.btn {
     background-color: aqua;
 }
 
+#cover_block {
+    background-color: black;
+    width: 80%;
+    height: 90%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.gamelist {
+    float: left;
+    margin-left: 5%;
+}
+
+.top_games_title {
+    padding-top: 10px;
+    margin-left: 2%;
+    color: #ffffff;
+}
+
+.title {
+    padding-top: 20px;
+}
+
 .register-button {
     padding-top: 3px;
     float: right;
@@ -34,6 +57,31 @@ a.btn {
 .login-button {
     padding-top: 3px;
     float: right;
+    margin-right: 10px;
+}
+
+.top_games-button {
+    padding-top: 6px;
+    float: left;
+    padding-left: 1%;
+    margin-right: 10px;
+}
+
+.newest_games-button {
+    padding-top: 6px;
+    float: left;
+    margin-right: 10px;
+}
+
+.category-button {
+    padding-top: 6px;
+    float: left;
+    margin-right: 10px;
+}
+
+.about-button {
+    padding-top: 6px;
+    float: left;
     margin-right: 10px;
 }
 
