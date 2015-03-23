@@ -1,31 +1,82 @@
-div class='row'
-  /Decide the size of the column
-  div class='col-md-5'
-    form action='/register' method='post' id='register_form'
-    h4 name='error_msg' #{session[:error_msg]}
-    /Creates different fields where the user enter the required information
-  div class='input-group'
-    span class='input-group-addon' id='basic-addon1' Username
-    | <input type="text" class="form-control" name="username" placeholder="" aria-describedby="basic-addon1" pattern=".{3,}" required title="3 characters minimum">
-  div class='input-group'
-    span class='input-group-addon' id='basic-addon1' Email
-    | <input type='email' class='form-control' name='email' placeholder='' aria-describedby='basic-addon1' pattern=".{5,}" required title="5 characters minimum">
-  div class='input-group'
-    span class='input-group-addon' id='basic-addon1' Password
-    | <input type='password' class='form-control' name='password' placeholder='' aria-describedby='basic-addon1' pattern=".{5,}" required title="5 characters minimum (for your own safety)">
-  div class='input-group'
-    | <label><input type='checkbox' value='termsandservice' required title="You need to accept the terms & service to proceed" name='termsandservice'>I agree with the <a href='/termsandservice' target=_blank>Terms & Service</a>
-  div class='input-group'
-  label
-    input type='checkbox' checked='checked' value='newsletters' name='newsletters' I want email about latest news
-    br
-    button type="submit" Register
+div class="row centered-form"
+  div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4"
+    div class="panel panel-default"
+      div class="panel-heading"
+        h3 class="panel-title">Please sign up for Gamebased
+          small It's free!
+        div class="panel-body"
+          form role="form"
+
+            div class="form-group"
+              input type="text" name="username" id="username" class="form-control input-sm" placeholder="Username"
+            div class="form-group"
+              input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address"
+
+            div class="row"
+              div class="col-xs-6 col-sm-6 col-md-6"
+                div class="form-group"
+                  input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password"
+              div class="col-xs-6 col-sm-6 col-md-6"
+                div class="form-group"
+                  input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password"
+            input type="submit" value="Register" class="btn btn-info btn-block"
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/div class='row'
+/  /Decide the size of the column
+/  div class='col-md-5'
+/    form action='/register' method='post' id='register_form'
+/    h4 name='error_msg' #{session[:error_msg]}
+/    /Creates different fields where the user enter the required information
+/  div class='input-group'
+/    span class='input-group-addon' id='basic-addon1' Username
+/    | <input type="text" class="form-control" name="username" placeholder="" aria-describedby="basic-addon1" pattern=".{3,}" required title="3 characters minimum">
+/  div class='input-group'
+/    span class='input-group-addon' id='basic-addon1' Email
+/    | <input type='email' class='form-control' name='email' placeholder='' aria-describedby='basic-addon1' pattern=".{5,}" required title="5 characters minimum">
+/  div class='input-group'
+/    span class='input-group-addon' id='basic-addon1' Password
+/    | <input type='password' class='form-control' name='password' placeholder='' aria-describedby='basic-addon1' pattern=".{5,}" required title="5 characters minimum (for your own safety)">
+/  div class='input-group'
+/    | <label><input type='checkbox' value='termsandservice' required title="You need to accept the terms & service to proceed" name='termsandservice'>I agree with the <a href='/termsandservice' target=_blank>Terms & Service</a>
+/  div class='input-group'
+/  label
+/    input type='checkbox' checked='checked' value='newsletters' name='newsletters' I want email about latest news
+/    br
+/    button type="submit" Register
+/
+/
+/
+/
+/
+/
 
 
 
