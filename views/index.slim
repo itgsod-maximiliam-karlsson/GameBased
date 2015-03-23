@@ -1,4 +1,11 @@
-link rel="stylesheet" type="text/css" href="/css/index.css"
+h1 Gamebased
 div id='container'
-  h1 Gamebased
-  a href="/register" class="btn" Register
+  div id='nav-bar'
+    form class='register-button' action='/register' method='get'
+      button type="submit" Register
+    form class='login-form'
+      span Username:
+      input class='login-username' type="text" name="Username" placeholder="Username"
+      br
+      span Password:
+      input class='login-password' type="password" name="Password" placeholder="Password"
