@@ -4,7 +4,7 @@ link rel="stylesheet" type="text/css" href="/css/login.css"
         div class="panel-heading"
           div class="panel-title" Sign In
           div style="float:right; font-size: 80%; position: relative; top:-10px"
-            a href="#" Forgot password?
+            a href="/forgotpassword" Forgot password?
 
 
         div style="padding-top:30px" class="panel-body"
@@ -45,7 +45,7 @@ link rel="stylesheet" type="text/css" href="/css/login.css"
                 div class="col-md-12 control"
                   div style="border-top: 1px solid#888; padding-top:15px; font-size:85%"
                   span Don't have an account?
-                  a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()"  Sign up here!
+                  a href="/register" onClick="$('#loginbox').hide(); $('#signupbox').show()"  Sign up here!
 
 
 
@@ -63,7 +63,7 @@ link rel="stylesheet" type="text/css" href="/css/login.css"
           form id="signupform" class="form-horizontal" role="form"
 
             div id="signupalert" style="display:none" class="alert alert-danger"
-              p Error:
+              p Error
               span
 
 
@@ -74,25 +74,9 @@ link rel="stylesheet" type="text/css" href="/css/login.css"
 
 
             div class="form-group"
-              label for="firstname" class="col-md-3 control-label" First Name
-              div class="col-md-9">
-                input type="text" class="form-control" name="firstname" placeholder="First Name">
-
-            div class="form-group"
-              label for="lastname" class="col-md-3 control-label" Last Name
-              div class="col-md-9"
-                input type="text" class="form-control" name="lastname" placeholder="Last Name"
-
-            div class="form-group"
               label for="password" class="col-md-3 control-label" Password
               div class="col-md-9"
                 input type="password" class="form-control" name="passwd" placeholder="Password"
-
-
-            div class="form-group"
-              label for="icode" class="col-md-3 control-label" Invitation Code
-              div class="col-md-9"
-                input type="text" class="form-control" name="icode" placeholder=""
 
 
             div class="form-group"
