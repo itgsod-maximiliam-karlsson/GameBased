@@ -9,6 +9,10 @@ class App < Sinatra::Base
     slim :register
   end
 
+  get '/login' do
+    slim :login
+  end
+
   post '/register' do
     username = params['username'].capitalize
     email = params['email']
