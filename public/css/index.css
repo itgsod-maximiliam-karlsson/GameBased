@@ -26,13 +26,13 @@ a.btn {
 }
 
 .register-button {
-    padding-top: 7px;
+    padding-top: 3px;
     float: right;
     margin-right: 10px;
 }
 
 .login-button {
-    padding-top: 7px;
+    padding-top: 3px;
     float: right;
     margin-right: 10px;
 }
@@ -97,5 +97,6 @@ a.btn {
 }
 
 .searchbar {
+    padding-top: 4px;
     margin-left: 800px;
 }
