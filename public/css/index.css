@@ -21,20 +21,16 @@ a.btn {
 }
 
 .register-button {
+    padding-top: 7px;
     float: right;
     margin-right: 10px;
 }
 
-.login-form {
-    float:right;
+.login-button {
+    padding-top: 7px;
+    float: right;
+    margin-right: 10px;
 }
-
-.login-password {
-    padding-left: 3px;
-}
-
-
-
 
 
 
