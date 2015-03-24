@@ -9,4 +9,8 @@ class User
   has n, :comments
   belongs_to :role
 
+  def registerd?(username)
+    if username == User.username return
+  end
+
 end
