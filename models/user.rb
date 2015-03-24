@@ -9,8 +9,13 @@ class User
   has n, :comments
   belongs_to :role
 
-  def registerd?(username)
-    if username == User.username return
+  def registered?(username)
+    User.username.each do |user|
+      if user == username
+        return true
+      else
+        return false
+      end
+    end
   end
-
 end

@@ -3,6 +3,7 @@ class App < Sinatra::Base
 
   get '/' do
     @games = Game.all
+    @users = User.all
     slim :index
   end
 
@@ -37,7 +38,7 @@ class App < Sinatra::Base
       session[:error_msg] = 'Something went wrong'
       redirect '/register'
     else
-      if User.registered? username or User.registered_email? email
+      if User.registered?(username) or User.registered_email?(email)
         session[:error_msg] = 'Username or email is already in use'
         redirect '/register'
       else
