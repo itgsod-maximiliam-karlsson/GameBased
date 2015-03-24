@@ -33,12 +33,12 @@ class App < Sinatra::Base
     get_password = params['password']
     # tands = params['termsandservice']
 
-    User.create( username: username, email: email,  password: get_password, role: Role.first)
+    user = User.create( username: username, email: email,  password: get_password, role: Role.first)
     if username.size < 3 or username.size > 15 or email.size < 5 or email.size > 32
       session[:error_msg] = 'Something went wrong'
       redirect '/register'
     else
-      if User.registered?(username) or User.registered_email?(email)
+      if user.registered?(username) or user.registered_email?(email)
         session[:error_msg] = 'Username or email is already in use'
         redirect '/register'
       else
