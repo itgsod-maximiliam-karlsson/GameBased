@@ -11,11 +11,16 @@ class App < Sinatra::Base
   end
 
   get '/login' do
+    @users = User.all
     slim :login
   end
 
   get '/forgotpassword' do
     slim :forgotpassword
+  end
+
+  post '/login' do
+
   end
 
   post '/register' do
