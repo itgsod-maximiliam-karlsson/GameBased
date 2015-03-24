@@ -10,12 +10,25 @@ class User
   belongs_to :role
 
   def registered?(username)
-    User.username.each do |user|
-      if user == username
+    user = User.all
+    user.each do |user|
+      if user.username == username
         return true
       else
         return false
       end
     end
   end
+
+  def registered_email?(email)
+    user = User.all
+    user.each do |user|
+      if user.email == email
+        return true
+      else
+        return false
+      end
+    end
+  end
+
 end

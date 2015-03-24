@@ -47,8 +47,6 @@ class App < Sinatra::Base
         session[:user_name] = user.username
         session[:user_id] = user.id
         session[:user_role] = user.role
-        LoginLog.create(time: Time.now, user_id: user.id)
-
         redirect '/'
       end
     end
