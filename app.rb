@@ -20,7 +20,10 @@ class App < Sinatra::Base
   end
 
   post '/login' do
+    username = params['username']
+    password = params['password']
 
+    
   end
 
   post '/register' do
