@@ -148,3 +148,14 @@ a.btn {
     padding-top: 4px;
     margin-left: 800px;
 }
+
+.username {
+    padding-top: 6px;
+    float: left;
+}
+
+.logout-btn {
+    padding-top: 4px;
+    margin-right: 100px;
+    float: right;
+}

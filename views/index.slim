@@ -40,10 +40,17 @@ div id='container'
             input type="text" class="form-control" name="search" id="search" placeholder="search"
               span class="glyphicon glyphicon-search form-control-feedback"
 
-    form class='register-button' action='/register' method='get'
-      button type="submit" Register
+    #login
+      -if session[:user]
+        div class='username'
+          span #{@user.username}
+        form action='/logout' method='post' class='logout-btn'
+          button type='submit' Logout
+      -else
+        form class='register-button' action='/register' method='get'
+          button type="submit" Register
 
-    form class='login-button' action='/login' method='get'
-      button type="submit" Login
+        form class='login-button' action='/login' method='get'
+            button type="submit" Login
   div id='cover_block'
     h2 class='top_games_title' Top games

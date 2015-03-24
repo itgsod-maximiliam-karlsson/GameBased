@@ -6,6 +6,9 @@ class App < Sinatra::Base
   enable :sessions
 
   get '/' do
+    if session[:user]
+      @user = User.get(session[:user])
+    end
     @games = Game.all
     @users = User.all
     slim :index
@@ -24,18 +27,26 @@ class App < Sinatra::Base
     slim :forgotpassword
   end
 
-  post '/login' do
-    username = params['username']
-    password = params['password']
-    user = User.first(username)
+  get '/error' do
+    slim :error
+  end
 
-    if user.authenticate?(password)
-      session[:member] = true
+  post '/logout' do
+    session[:user] = nil
+    redirect '/'
+  end
+
+  post '/login' do
+    #hämta användaren med namnet som står i params
+    user = User.first(username: params['username'])
+    if user && user.password == params['password']
+      session[:user] = user.id
       redirect '/'
     else
-      redirect '/Wrong'
+      redirect '/error'
     end
   end
+
 
   post '/register' do
     username = params['username']
