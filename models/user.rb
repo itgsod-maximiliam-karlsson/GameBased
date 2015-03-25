@@ -32,10 +32,11 @@ class User
   end
 
   def authenticate?(password)
-      if self.password == password
-        return true
-      else
-        return false
-      end
+    if self.password == password
+      return true
+    else
+      return false
     end
+  end
+
 end
