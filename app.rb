@@ -2,7 +2,6 @@ require 'rubygems'
 require 'bcrypt'
 require 'sinatra'
 require 'pony'
-require 'link_thumbnailer'
 
 class App < Sinatra::Base
   enable :sessions

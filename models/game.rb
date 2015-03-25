@@ -7,6 +7,7 @@ class Game
   property :base_language_id, Integer, required: true
   property :release_date, String
   property :rating, Integer
+  property :img, Text
 
   has n, :company_games
   has n, :companies, :through => :company_games
