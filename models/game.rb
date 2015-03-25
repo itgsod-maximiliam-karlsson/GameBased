@@ -8,6 +8,8 @@ class Game
   property :release_date, String
   property :rating, Integer
   property :img, Text
+  property :category, String, required: true
+
 
   has n, :company_games
   has n, :companies, :through => :company_games

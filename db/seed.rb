@@ -12,9 +12,9 @@ class Seeder
 
   def self.games
     Game.create(name: 'Counter Strike', description: 'A FPS video game.',
-                base_language_id: 1, release_date: '19/6/1999', rating: 7, img: 'http://static.giantbomb.com/uploads/scale_small/1/13692/2302957-i2cs9uzmq4yua.jpg')
+                base_language_id: 1, release_date: '19/6/1999', rating: 7, img: 'http://static.giantbomb.com/uploads/scale_small/1/13692/2302957-i2cs9uzmq4yua.jpg', category: 'action')
     Game.create(name: 'Team Fortress 2', description: 'A team based FPS video game.',
-                base_language_id: 1, release_date: '9/10/2007', rating: 6, img: '')
+                base_language_id: 1, release_date: '9/10/2007', rating: 6, img: '', category: 'action')
   end
 
   def self.languages
