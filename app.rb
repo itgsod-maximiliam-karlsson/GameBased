@@ -71,11 +71,22 @@ class App < Sinatra::Base
   end
 
   post '/login' do
-    #hämta användaren med namnet som står i params
-    user_username = User.first(username: params['username'])
     user_email = User.first(email: params['username'])
-    if user_username or user_email && user_username.password or user_email == params['password']
-      session[:user] = user_email.id or user_username.id
+    user = User.first(username: params['username'])
+    
+    # fucking shit stuff that im mad about
+    # if  user_email.password == params['password']
+    #   session[:user] = user_email.id
+    #   redirect '/'
+    # elsif user.password == params['password']
+    #   session[:user] = user.id
+    #   redirect '/'
+    # else
+    #   redirect '/error'
+    # end
+
+    if user.password == params['password']
+      session[:user] = user.id
       redirect '/'
     else
       redirect '/error'
