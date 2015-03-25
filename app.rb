@@ -16,6 +16,17 @@ class App < Sinatra::Base
     slim :index
   end
 
+  get '/newest_games' do
+    if session[:user]
+      @user = User.get(session[:user])
+    end
+    @games = Game.all
+    # (:order => [ :rating.desc ])
+    @users = User.all
+    slim :newest_games
+  end
+
+
   get '/register' do
     slim :register
   end

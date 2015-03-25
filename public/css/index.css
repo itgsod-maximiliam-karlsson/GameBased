@@ -43,7 +43,6 @@ a.btn {
 .top_games_title {
     padding-top: 10px;
     margin-left: 2%;
-    color: #ffffff;
 }
 
 .title {
@@ -146,28 +145,32 @@ a.btn {
     /*margin-left: 800px;*/
 /*}*/
 
-<<<<<<< HEAD
 .cover {
     /*margin-left: 10px;*/
 }
-=======
 .logout-btn {
     padding-top: 4px;
     margin-right: 10px;
     float: right;
 }
 
->>>>>>> origin/master
 .username {
     padding-top: 6px;
     float: right;
-    margin-right: 60px;
+    margin-right: 50px;
+}
+
+.login_box {
+
 }
 
 .login-button {
     padding-top: 3px;
     float: right ;
     margin-right: 10px;
+}
+
+.signed-in-as {
 }
 
 

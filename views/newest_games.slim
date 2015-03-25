@@ -37,11 +37,11 @@ div id='container'
           span #{@user.username}
       -else
         form class='login-button' action='/login' method='get'
-            button type="submit" Login / Register
+          button type="submit" Login / Register
   div id='cover_block'
-    h2 class='top_games_title' Top games
+    h2 class='top_games_title' Newest Games
     div class='game_list'
-      table#table_id.display
+      table#table_new.display
         thead
           tr
             th Name
