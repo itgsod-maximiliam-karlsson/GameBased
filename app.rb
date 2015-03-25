@@ -2,6 +2,7 @@ require 'rubygems'
 require 'bcrypt'
 require 'sinatra'
 require 'pony'
+require 'link_thumbnailer'
 
 class App < Sinatra::Base
   enable :sessions
@@ -32,7 +33,7 @@ class App < Sinatra::Base
   post '/forgotpassword' do
     Pony.mail :to => params['email'],
     :from => 'fuckyou@getrekt.com',
-    :subject => "You don't desire"
+    :subject => "You don't desire a new password"
   end
 
   get '/error' do
