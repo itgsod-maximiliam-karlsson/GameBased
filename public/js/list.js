@@ -8,7 +8,7 @@ $(document).ready( function () {
     $('#table_new').DataTable(
         {
             paging: false,
-            order: [ 2, 'desc' ]
+            order: [ 3, 'desc' ]
         }
     );
 } );

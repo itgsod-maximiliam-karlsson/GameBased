@@ -46,8 +46,8 @@ div id='container'
           tr
             th Name
             th Rating
+            th Category
             th release date
-
         tbody
           - for game in @games
             tr
@@ -60,5 +60,7 @@ div id='container'
                   name #{game.name}
               td
                 rating #{game.rating}
+              td
+                category #{game.category}
               td
                 release_date #{game.release_date}
