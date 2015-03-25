@@ -35,17 +35,16 @@ link rel="stylesheet" type="text/css" href="/css/login.css"
 
 
 
-
-                .container
+.container
   #loginbox.mainbox.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2 style="margin-top:50px;"
     .panel.panel-info
       .panel-heading
         .panel-title Sign In
         div style=("float:right; font-size: 80%; position: relative; top:-10px")
-          a href="#"  Forgot password?
+          a href="/forgotpassword"  Forgot password?
       .panel-body style="padding-top:30px"
         #login-alert.alert.alert-danger.col-sm-12 style="display:none"
-        form#loginform.form-horizontal role="form"
+        form#loginform.form-horizontal role="form"  action="/login" method="post"
           .input-group style=("margin-bottom: 25px")
             span.input-group-addon
               i.glyphicon.glyphicon-user
@@ -62,14 +61,14 @@ link rel="stylesheet" type="text/css" href="/css/login.css"
           .form-group style="margin-top:10px"
             /! Button
             .col-sm-12.controls
-              a#btn-login.btn.btn-success href="#"  Login
+              button#btn-login.btn.btn-success type="submit" Login
               a#btn-fblogin.btn.btn-primary href="#"  Login with Facebook
           .form-group
             .col-md-12.control
               div style=("border-top: 1px solid#888; padding-top:15px; font-size:85%")
-                | Don't have an account!
+                | Don't have an account?
                 a href="#" onclick=("$('#loginbox').hide(); $('#signupbox').show()")
-                  | Sign Up Here
+                  | Sign Up Here!
   #signupbox.mainbox.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2 style=("display:none; margin-top:50px")
     .panel.panel-info
       .panel-heading
@@ -77,39 +76,29 @@ link rel="stylesheet" type="text/css" href="/css/login.css"
         div style=("float:right; font-size: 85%; position: relative; top:-10px")
           a#signinlink href="#" onclick=("$('#signupbox').hide(); $('#loginbox').show()")  Sign In
       .panel-body
-        form#signupform.form-horizontal role="form"
+        form#signupform.form-horizontal role="form" action='/register' method='post'
           #signupalert.alert.alert-danger style="display:none"
             p Error:
             span
+          .form-group
+            label.col-md-3.control-label for="username"  Username
+            .col-md-9
+              input.form-control name="username" placeholder=("Username") type="text" /
           .form-group
             label.col-md-3.control-label for="email"  Email
             .col-md-9
               input.form-control name="email" placeholder=("Email Address") type="text" /
           .form-group
-            label.col-md-3.control-label for="firstname"  First Name
-            .col-md-9
-              input.form-control name="firstname" placeholder=("First Name") type="text" /
-          .form-group
-            label.col-md-3.control-label for="lastname"  Last Name
-            .col-md-9
-              input.form-control name="lastname" placeholder=("Last Name") type="text" /
-          .form-group
             label.col-md-3.control-label for="password"  Password
             .col-md-9
-              input.form-control name="passwd" placeholder="Password" type="password" /
+              input.form-control name="password" placeholder="Password" type="password" /
           .form-group
-            label.col-md-3.control-label for="icode"  Invitation Code
+            label.col-md-3.control-label for="password_confirm"  Confirm Password
             .col-md-9
-              input.form-control name="icode" placeholder="" type="text" /
+              input.form-control name="password_confirm" placeholder="Confirm Password" type="password" /
           .form-group
             /! Button
             .col-md-offset-3.col-md-9
-              button#btn-signup.btn.btn-info type="button"
+              button#btn-signup.btn.btn-info type="submit"
                 i.icon-hand-right
-                | \&nbsp Sign Up
-              span style="margin-left:8px;"  or
-          .form-group style=("border-top: 1px solid #999; padding-top:20px")
-            .col-md-offset-3.col-md-9
-              button#btn-fbsignup.btn.btn-primary type="button"
-                i.icon-facebook
-                |   Sign Up with Facebook
+                |Sign Up
