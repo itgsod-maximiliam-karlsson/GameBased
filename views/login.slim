@@ -1,34 +1,115 @@
 link rel="stylesheet" type="text/css" href="/css/login.css"
-    div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"
-      div class="panel panel-info"
-        div class="panel-heading"
-          div class="panel-title" Sign In
-          div style="float:right; font-size: 80%; position: relative; top:-10px"
-            a href="/forgotpassword" Forgot password?
+    /div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"
+    /  div class="panel panel-info"
+    /    div class="panel-heading"
+    /      div class="panel-title" Sign In
+    /      div style="float:right; font-size: 80%; position: relative; top:-10px"
+    /        a href="/forgotpassword" Forgot password?
+    /
+    /    div style="padding-top:30px" class="panel-body"
+    /      div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"
+    /      form id="loginform" class="form-horizontal" role="form" action="/login" method="post"
+    /        div style="margin-bottom: 25px" class="input-group"
+    /          span class="input-group-addon"
+    /            i class="glyphicon glyphicon-user"
+    /          input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email"
+    /        div style="margin-bottom: 25px" class="input-group"
+    /          span class="input-group-addon"
+    /            i class="glyphicon glyphicon-lock"
+    /          input id="login-password" type="password" class="form-control" name="password" placeholder="password"
+    /        div class="input-group"
+    /          div class="checkbox"
+    /            label
+    /              input id="login-remember" type="checkbox" name="remember" value="1" Remember me
+    /          div style="margin-top:10px" class="form-group"
+    /            div class="col-sm-12 controls"
+    /              div id="login"
+    /                button type="submit" Login
+    /              div id="fblogin"
+    /                a id="btn-fblogin" href="#" class="btn btn-primary"Login with Facebook
+    /          div class="form-group"
+    /            div class="col-md-12 control"
+    /              div style="border-top: 1px solid#888; padding-top:15px; font-size:85%"
+    /              span Don't have an account?
+    /              a href="/register" Sign up here!
 
-        div style="padding-top:30px" class="panel-body"
-          div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"
-          form id="loginform" class="form-horizontal" role="form" action="/login" method="post"
-            div style="margin-bottom: 25px" class="input-group"
-              span class="input-group-addon"
-                i class="glyphicon glyphicon-user"
-              input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email"
-            div style="margin-bottom: 25px" class="input-group"
-              span class="input-group-addon"
-                i class="glyphicon glyphicon-lock"
-              input id="login-password" type="password" class="form-control" name="password" placeholder="password"
-            div class="input-group"
-              div class="checkbox"
-                label
-                  input id="login-remember" type="checkbox" name="remember" value="1" Remember me
-              div style="margin-top:10px" class="form-group"
-                div class="col-sm-12 controls"
-                  div id="login"
-                    button type="submit" Login
-                  div id="fblogin"
-                    a id="btn-fblogin" href="#" class="btn btn-primary"Login with Facebook
-              div class="form-group"
-                div class="col-md-12 control"
-                  div style="border-top: 1px solid#888; padding-top:15px; font-size:85%"
-                  span Don't have an account?
-                  a href="/register" Sign up here!
+
+
+
+                .container
+  #loginbox.mainbox.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2 style="margin-top:50px;"
+    .panel.panel-info
+      .panel-heading
+        .panel-title Sign In
+        div style=("float:right; font-size: 80%; position: relative; top:-10px")
+          a href="#"  Forgot password?
+      .panel-body style="padding-top:30px"
+        #login-alert.alert.alert-danger.col-sm-12 style="display:none"
+        form#loginform.form-horizontal role="form"
+          .input-group style=("margin-bottom: 25px")
+            span.input-group-addon
+              i.glyphicon.glyphicon-user
+            input#login-username.form-control name="username" placeholder=("username or email") type="text" value="" /
+          .input-group style=("margin-bottom: 25px")
+            span.input-group-addon
+              i.glyphicon.glyphicon-lock
+            input#login-password.form-control name="password" placeholder="password" type="password" /
+          .input-group
+            .checkbox
+              label
+                input#login-remember name="remember" type="checkbox" value="1" /
+                | Remember me
+          .form-group style="margin-top:10px"
+            /! Button
+            .col-sm-12.controls
+              a#btn-login.btn.btn-success href="#"  Login
+              a#btn-fblogin.btn.btn-primary href="#"  Login with Facebook
+          .form-group
+            .col-md-12.control
+              div style=("border-top: 1px solid#888; padding-top:15px; font-size:85%")
+                | Don't have an account!
+                a href="#" onclick=("$('#loginbox').hide(); $('#signupbox').show()")
+                  | Sign Up Here
+  #signupbox.mainbox.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2 style=("display:none; margin-top:50px")
+    .panel.panel-info
+      .panel-heading
+        .panel-title Sign Up
+        div style=("float:right; font-size: 85%; position: relative; top:-10px")
+          a#signinlink href="#" onclick=("$('#signupbox').hide(); $('#loginbox').show()")  Sign In
+      .panel-body
+        form#signupform.form-horizontal role="form"
+          #signupalert.alert.alert-danger style="display:none"
+            p Error:
+            span
+          .form-group
+            label.col-md-3.control-label for="email"  Email
+            .col-md-9
+              input.form-control name="email" placeholder=("Email Address") type="text" /
+          .form-group
+            label.col-md-3.control-label for="firstname"  First Name
+            .col-md-9
+              input.form-control name="firstname" placeholder=("First Name") type="text" /
+          .form-group
+            label.col-md-3.control-label for="lastname"  Last Name
+            .col-md-9
+              input.form-control name="lastname" placeholder=("Last Name") type="text" /
+          .form-group
+            label.col-md-3.control-label for="password"  Password
+            .col-md-9
+              input.form-control name="passwd" placeholder="Password" type="password" /
+          .form-group
+            label.col-md-3.control-label for="icode"  Invitation Code
+            .col-md-9
+              input.form-control name="icode" placeholder="" type="text" /
+          .form-group
+            /! Button
+            .col-md-offset-3.col-md-9
+              button#btn-signup.btn.btn-info type="button"
+                i.icon-hand-right
+                | \&nbsp Sign Up
+              span style="margin-left:8px;"  or
+          .form-group style=("border-top: 1px solid #999; padding-top:20px")
+            .col-md-offset-3.col-md-9
+              button#btn-fbsignup.btn.btn-primary type="button"
+                i.icon-facebook
+                |   Sign Up with Facebook
