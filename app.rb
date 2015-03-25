@@ -26,9 +26,24 @@ class App < Sinatra::Base
     slim :newest_games
   end
 
+  get '/games/:id/:name' do
+    @game = Game.find(params[:id])
+    slim :game
+  end
+
 
   get '/register' do
     slim :register
+  end
+
+  get '/category' do
+    if session[:user]
+      @user = User.get(session[:user])
+    end
+    @games = Game.all
+    # (:order => [ :rating.desc ])
+    @users = User.all
+    slim :category
   end
 
   get '/login' do

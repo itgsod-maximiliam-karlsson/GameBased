@@ -37,7 +37,7 @@ div id='container'
           span #{@user.username}
       -else
         form class='login-button' action='/login' method='get'
-            button type="submit" Login / Register
+          button type="submit" Login / Register
   div id='cover_block'
     h2 class='top_games_title' Top games
     div class='game_list'
@@ -56,7 +56,7 @@ div id='container'
                   img class='cover' src='/pictures/Gamebased_logo.jpg' height="58" width="48"
                 -else
                   img class='cover' src="#{game.img}" height="58" width="48"
-                a href="/games/#{game.id}/#{game.name}"
+                a href="/games/#{game.name}"
                   name #{game.name}
               td
                 rating #{game.rating}
