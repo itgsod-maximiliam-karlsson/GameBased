@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bcrypt'
 require 'sinatra'
+require 'pony'
 
 class App < Sinatra::Base
   enable :sessions
@@ -26,6 +27,12 @@ class App < Sinatra::Base
 
   get '/forgotpassword' do
     slim :forgotpassword
+  end
+
+  post '/forgotpassword' do
+    Pony.mail :to => params['email'],
+    :from => 'fuckyou@getrekt.com',
+    :subject => "You don't desire"
   end
 
   get '/error' do
