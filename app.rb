@@ -10,6 +10,7 @@ class App < Sinatra::Base
       @user = User.get(session[:user])
     end
     @games = Game.all
+    # (:order => [ :rating.desc ])
     @users = User.all
     slim :index
   end

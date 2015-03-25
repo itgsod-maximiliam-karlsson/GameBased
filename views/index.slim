@@ -1,4 +1,5 @@
 link rel="stylesheet" type="text/css" href="/css/index.css"
+script src="../js/list.js"
 div id='header'
   img class='logo' src='/pictures/Gamebased_logo.jpg'
   h1 class='title' Gamebased
@@ -10,21 +11,6 @@ div id='container'
 
     form class='newest_games-button' action='/newest_games' method='get'
       button type="submit" Newest Games
-
-
-    /div class="dropdown"
-    /  button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true" Dropdown
-    /    span class="caret"
-    /
-    /  ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"
-    /    li role="presentation">
-    /      a role="menuitem" tabindex="-1" href="#" Action
-    /    li role="presentation"
-    /      a role="menuitem" tabindex="-1" href="#" Another action
-    /    li role="presentation"
-    /      a role="menuitem" tabindex="-1" href="#" Something else here
-    /    li role="presentation"
-    /      a role="menuitem" tabindex="-1" href="#" Separated link
 
     form class='category-button' action='/category' method='get'
       button type="submit" Category
@@ -54,3 +40,21 @@ div id='container'
             button type="submit" Login
   div id='cover_block'
     h2 class='top_games_title' Top games
+
+    table#table_id.display
+      thead
+        tr
+          th Name
+          th Rating
+          th release date
+
+      tbody
+        - for game in @games
+          tr
+            td
+              a href="/games/#{game.name}"
+                name #{game.name}
+            td
+              rating #{game.rating}
+            td
+              release_date #{game.release_date}
