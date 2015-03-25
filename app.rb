@@ -57,9 +57,10 @@ class App < Sinatra::Base
 
   post '/login' do
     #hämta användaren med namnet som står i params
-    user = User.first(username: params['username'])
-    if user && user.password == params['password']
-      session[:user] = user.id
+    user_username = User.first(username: params['username'])
+    user_email = User.first(email: params['username'])
+    if user_username or user_email && user_username.password or user_email == params['password']
+      session[:user] = user_email.id or user_username.id
       redirect '/'
     else
       redirect '/error'
@@ -89,5 +90,10 @@ class App < Sinatra::Base
 
   get '/termsandservice' do
     slim :termsandservice
+  end
+
+  get '/games/:game' do |game|
+    @game = Game.get(game)
+
   end
 end
