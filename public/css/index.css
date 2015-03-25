@@ -56,12 +56,6 @@ a.btn {
     margin-right: 10px;
 }
 
-.login-button {
-    padding-top: 3px;
-    float: right;
-    margin-right: 10px;
-}
-
 .top_games-button {
     padding-top: 6px;
     float: left;
@@ -152,16 +146,28 @@ a.btn {
     /*margin-left: 800px;*/
 /*}*/
 
+<<<<<<< HEAD
 .cover {
     /*margin-left: 10px;*/
 }
-.username {
-    padding-top: 6px;
-    float: left;
-}
-
+=======
 .logout-btn {
     padding-top: 4px;
-    margin-right: 100px;
+    margin-right: 10px;
     float: right;
 }
+
+>>>>>>> origin/master
+.username {
+    padding-top: 6px;
+    float: right;
+    margin-right: 60px;
+}
+
+.login-button {
+    padding-top: 3px;
+    float: right ;
+    margin-right: 10px;
+}
+
+
