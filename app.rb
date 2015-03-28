@@ -71,27 +71,52 @@ class App < Sinatra::Base
   end
 
   post '/login' do
-    user_email = User.first(email: params['username'])
-    user = User.first(username: params['username'])
-    
-    # fucking shit stuff that im mad about
-    # if  user_email.password == params['password']
-    #   session[:user] = user_email.id
-    #   redirect '/'
-    # elsif user.password == params['password']
-    #   session[:user] = user.id
-    #   redirect '/'
-    # else
-    #   redirect '/error'
-    # end
-
-    if user.password == params['password']
-      session[:user] = user.id
-      redirect '/'
+    if params['username'].empty? == false
+      user = User.first(username: params['username'])
+      if user.respond_to?('password')
+        if user.password == params['password']
+          session[:user] = user.id
+          redirect '/'
+        else
+          redirect '/error'
+        end
+      else
+        user = User.first(email: params['username'])
+        if user.respond_to?('password')
+          if user.password == params['password']
+            session[:user] = user.id
+            redirect '/'
+          else
+            redirect '/error'
+          end
+        else
+          redirect '/error'
+        end
+        redirect '/error'
+      end
     else
       redirect '/error'
     end
   end
+
+
+  # post '/login' do
+  #   if params['username'].empty? == false
+  #     user = User.first(username: params['username'])
+  #     if user.respond_to?('password')
+  #       if user.password == params['password']
+  #         session[:user] = user.id
+  #         redirect '/'
+  #       else
+  #         redirect '/error'
+  #       end
+  #     else
+  #       redirect '/error'
+  #     end
+  #   else
+  #     redirect '/error'
+  #   end
+  # end
 
 
   post '/register' do
