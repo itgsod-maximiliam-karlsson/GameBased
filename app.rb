@@ -27,7 +27,23 @@ class App < Sinatra::Base
   end
 
   get '/games/:id/:name' do
-    @game = Game.find(params[:id])
+    if session[:user]
+      @user = User.get(session[:user])
+    end
+    @game = Game.first(id: params[:id])
+    slim :game
+  end
+
+  post '/games/:id/:name' do
+    if session[:user]
+      @user = User.get(session[:user])
+    end
+    @game = Game.first(id: params[:id])
+    User.get(session[:user])
+    text = params['text']
+    points = params['points']
+    # Comment.create( comment: text, points: points, game_id: params[:id], user_id: @user.id )
+
     slim :game
   end
 
