@@ -33,6 +33,8 @@ class App < Sinatra::Base
 
   get '/games/:id/:name' do
     @game = Game.first(id: params[:id])
+    @comments = Comment.all
+    @users = User.all
     slim :game
   end
 

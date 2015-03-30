@@ -8,6 +8,7 @@ class Seeder
     self.taggings
     self.roles
     self.users
+    self.comment
   end
 
   def self.games
@@ -40,6 +41,13 @@ class Seeder
     Tag.create(name: 'MMO')
     Tag.create(name: 'RPG')
     Tag.create(name: 'JRPG')
+  end
+
+  def self.comment
+    Comment.create(comment: 'test1', points: 7, game_id: 1, user_id: 1)
+    Comment.create(comment: 'test2', points: 3, game_id: 2, user_id: 2)
+    Comment.create(comment: 'test3', points: 6, game_id: 1, user_id: 2)
+    Comment.create(comment: 'test4', points: 8, game_id: 1, user_id: 3)
   end
 
   def self.taggings

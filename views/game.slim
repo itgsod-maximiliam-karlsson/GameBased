@@ -54,7 +54,13 @@ div id='container'
         label.col-md-3.control-label for="points"  Points 1-10
         .col-md-9
           input.form-control name="points" placeholder="points" type="text"
+      ul
+        -for comment in @comments
+          h4 #{comment.user_id}
+          ul
+            li #{comment.comment}
 
       button#btn-comment.btn.btn-info type="submit"
         i.icon-hand-right
         |Write Review
+
