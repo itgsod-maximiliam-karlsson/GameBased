@@ -7,18 +7,16 @@ require 'pony'
 class App < Sinatra::Base
   enable :sessions
 
-  # before 'filter' do
-  #   if session[:user]
-  #     @user = User.get(session[:user])
-  #     if blalbalbalba
-  #        @user = GuestUser.new
-  #   end
-  # end
-
-  get '/' do
+  before do
     if session[:user]
       @user = User.get(session[:user])
+      # if blalbalbalba
+      #    @user = GuestUser.new
+      # end
     end
+  end
+
+  get '/' do
     @games = Game.all
     # (:order => [ :rating.desc ])
     @users = User.all
@@ -26,9 +24,7 @@ class App < Sinatra::Base
   end
 
   get '/newest_games' do
-    if session[:user]
-      @user = User.get(session[:user])
-    end
+
     @games = Game.all
     # (:order => [ :rating.desc ])
     @users = User.all
@@ -36,30 +32,20 @@ class App < Sinatra::Base
   end
 
   get '/games/:id/:name' do
-    if session[:user]
-      @user = User.get(session[:user])
-    end
     @game = Game.first(id: params[:id])
     slim :game
   end
 
   post '/games/:id/:name' do
-    if session[:user]
-      @user = User.get(session[:user])
-    end
     @game = Game.first(id: params[:id])
     user_id = @user.id
     text = params['text']
     points = params['points']
     Comment.create( comment: text, points: points, game_id: params[:id], user_id: user_id )
-
-    slim :game
+    redirect back
   end
 
   get '/category' do
-    if session[:user]
-      @user = User.get(session[:user])
-    end
     @games = Game.all
     # (:order => [ :rating.desc ])
     @users = User.all
