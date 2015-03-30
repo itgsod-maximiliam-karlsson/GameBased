@@ -12,6 +12,7 @@ gem 'slim'
 gem 'tilt', '~> 1.4.1' #temporary fix
 gem 'racksh'
 gem 'pony', '~> 1.11'
+gem 'sinatra-flash'
 
 # Used during local development (on your own machine)
 group :development do

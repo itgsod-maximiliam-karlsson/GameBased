@@ -6,6 +6,14 @@ require 'pony'
 class App < Sinatra::Base
   enable :sessions
 
+  # before 'filter' do
+  #   if session[:user]
+  #     @user = User.get(session[:user])
+  #     if blalbalbalba
+  #        @user = GuestUser.new
+  #   end
+  # end
+
   get '/' do
     if session[:user]
       @user = User.get(session[:user])
@@ -78,6 +86,9 @@ class App < Sinatra::Base
   end
 
   get '/error' do
+    if session[:error_msg]
+      @error = session[:error_msg]
+    end
     slim :error
   end
 
@@ -87,72 +98,13 @@ class App < Sinatra::Base
   end
 
   post '/login' do
-    if params['username'].empty? == false
-      user = User.first(username: params['username'])
-      if user.respond_to?('password')
-        if user.password == params['password']
-          session[:user] = user.id
-          redirect '/'
-        else
-          redirect '/error'
-        end
-      else
-        user = User.first(email: params['username'])
-        if user.respond_to?('password')
-          if user.password == params['password']
-            session[:user] = user.id
-            redirect '/'
-          else
-            redirect '/error'
-          end
-        else
-          redirect '/error'
-        end
-        redirect '/error'
-      end
-    else
-      redirect '/error'
-    end
+    redirect_url = User.login(username: params['username'], password: params['password'], app: self)
+    redirect redirect_url
   end
 
-
-  # post '/login' do
-  #   if params['username'].empty? == false
-  #     user = User.first(username: params['username'])
-  #     if user.respond_to?('password')
-  #       if user.password == params['password']
-  #         session[:user] = user.id
-  #         redirect '/'
-  #       else
-  #         redirect '/error'
-  #       end
-  #     else
-  #       redirect '/error'
-  #     end
-  #   else
-  #     redirect '/error'
-  #   end
-  # end
-
-
   post '/register' do
-    username = params['username']
-    email = params['email']
-    get_password = params['password']
-    # tands = params['termsandservice']
-
-    user = User.create( username: username, email: email,  password: get_password, role: Role.first)
-    session[:user] = user.id
-    if username.size < 3 or username.size > 15 or email.size < 5 or email.size > 32
-      session[:error_msg] = 'Something went wrong'
-      redirect '/register'
-    end
-    if user.registered?(username) or user.registered_email?(email)
-      session[:error_msg] = 'Username or email is already in use'
-      redirect '/register'
-    end
-
-    redirect '/'
+    redirect_url = User.register(username: params['username'], email: params['email'], password: params['password'],password_confirmation: params['password_confirmation'], app: self)
+    redirect redirect_url
   end
 
   get '/termsandservice' do
