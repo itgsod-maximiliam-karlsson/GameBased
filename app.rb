@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bcrypt'
 require 'sinatra'
+require 'sinatra/flash'
 require 'pony'
 
 class App < Sinatra::Base
@@ -47,17 +48,12 @@ class App < Sinatra::Base
       @user = User.get(session[:user])
     end
     @game = Game.first(id: params[:id])
-    User.get(session[:user])
+    user_id = @user.id
     text = params['text']
     points = params['points']
-    # Comment.create( comment: text, points: points, game_id: params[:id], user_id: @user.id )
+    Comment.create( comment: text, points: points, game_id: params[:id], user_id: user_id )
 
     slim :game
-  end
-
-
-  get '/register' do
-    slim :register
   end
 
   get '/category' do
