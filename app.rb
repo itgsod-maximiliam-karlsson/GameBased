@@ -44,7 +44,7 @@ class App < Sinatra::Base
     @game = Game.first(id: params[:id])
     user_id = @user.id
     text = params['text']
-    points = params['points']
+    points = params['vote']
     Comment.create( comment: text, points: points, game_id: params[:id], user_id: user_id )
     redirect back
   end

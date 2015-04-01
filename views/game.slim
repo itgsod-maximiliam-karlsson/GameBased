@@ -41,24 +41,52 @@ div id='container'
   div id='cover_block'
     h2 class='top_games_title' #{@game.name}
     img class='game_cover' src="#{@game.img}" height="270" width="180"
-    h3 class='rating' Total Rating: #{@game.rating}
+    h3 class='rating' Pro Rating: #{@game.rating}
+    h3 class='rating' User Rating: #{@game.user_rating}
     h3 Information
     p class='description' #{@game.description}
     h3 User Reviews
     form#signupform.form-horizontal role="form" action='/games/#{@game.id}/#{@game.name}' method='post'
       .form-group
         label.col-md-3.control-label for="text"  Review
+      ul
+        -for comment in @comments
+          -user = @users.get(comment.user_id)
+          h4 #{user.username}
+          ul
+            li #{comment.comment}
         .col-md-9
           input.form-control name="text" placeholder="text" type="text"
       .form-group
-        label.col-md-3.control-label for="points"  Points 1-10
-        .col-md-9
-          input.form-control name="points" placeholder="points" type="text"
-      ul
-        -for comment in @comments
-          h4 #{comment.user_id}
-          ul
-            li #{comment.comment}
+        div class="form-group"
+          label for="sel1" Select list:
+          select class="form-control" id="sel1" name='rate'
+            option 1
+            option 2
+            option 3
+            option 4
+            option 5
+            option 6
+            option 7
+            option 8
+            option 9
+            option 10
+        /tr
+        /  td width="80" Vote:
+        /  td
+        /    select name="vote" placeholder="text"
+        /      option value="" Your Vote
+        /      option value="1" 1 (awful)
+        /      option value="2" 2
+        /      option value="3" 3
+        /      option value="4" 4
+        /      option value="5" 5
+        /      option value="6" 6
+        /      option value="7" 7
+        /      option value="8" 8
+        /      option value="9" 9
+        /      option value="10" 10 (excellent)
+        /    span out of 10
 
       button#btn-comment.btn.btn-info type="submit"
         i.icon-hand-right

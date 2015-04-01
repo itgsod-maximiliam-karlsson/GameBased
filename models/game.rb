@@ -7,6 +7,7 @@ class Game
   property :base_language_id, Integer, required: true
   property :release_date, String
   property :rating, Integer
+  property :user_rating, Integer
   property :img, Text
   property :category, String, required: true
 
