@@ -39,7 +39,8 @@ class User
                        role: Role.first)
     if user.valid?
       app.session[:user] = user.id
-      redirect_url = app.back
+      # redirect_url = app.back
+      redirect_url = '/'
     else
       app.flash[:errors] = user.errors.to_a.flatten
     end
