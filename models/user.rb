@@ -23,10 +23,13 @@ class User
           app.session[:user] = user.id
           redirect_url = '/'
         else
-          redirect_url = '/error'
+          app.flash[:error] = "Wrong password!"
+          redirect_url = app.back
+
         end
       else
-        redirect_url = '/error'
+        app.flash[:error] = "Username does not exist"
+        redirect_url = app.back
       end
     end
     return redirect_url
@@ -43,6 +46,7 @@ class User
       redirect_url = '/'
     else
       app.flash[:errors] = user.errors.to_a.flatten
+      redirect_url = app.back
     end
 
     return redirect_url
