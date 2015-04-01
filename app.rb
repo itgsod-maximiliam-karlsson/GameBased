@@ -89,7 +89,7 @@ class App < Sinatra::Base
   end
 
   post '/register' do
-    redirect_url = User.register(params, app: self)
+    redirect_url = User.register(params: params, app: self)
     redirect redirect_url
   end
 

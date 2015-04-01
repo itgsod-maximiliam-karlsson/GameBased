@@ -12,8 +12,6 @@ class User
 
   property :password, BCryptHash, required: true
 
-  validates_length_of :username, length: 4, message: "Username is too short"
-
   has n, :comments
   belongs_to :role
 
@@ -25,7 +23,6 @@ class User
           app.session[:user] = user.id
           redirect_url = '/'
         else
-          #app.flash[:error] = "#Ä€WKÄEFKDÖÄFKd"
           redirect_url = '/error'
         end
       else
@@ -35,13 +32,11 @@ class User
     return redirect_url
   end
 
-  def self.register(params, app:)
-
-    user = User.create( username: params['username'], email: params['email'],  password: params['password'], role: Role.first)
-    if params['password'] != params['password_confirmation']
-      app.flash[:errors] = ['Password does not match']
-      return '/error'
-    end
+  def self.register(params:, app:)
+    user = User.create(username: params['username'],
+                       email: params['email'],
+                       password: params['password'],
+                       role: Role.first)
     if user.valid?
       app.session[:user] = user.id
       redirect_url = app.back
