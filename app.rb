@@ -2,10 +2,12 @@ require 'rubygems'
 require 'bcrypt'
 require 'sinatra'
 require 'sinatra/flash'
+require 'rack-flash'
 require 'pony'
 
 class App < Sinatra::Base
   enable :sessions
+  use Rack::Flash
 
   before do
     if session[:user]
@@ -70,8 +72,8 @@ class App < Sinatra::Base
   end
 
   get '/error' do
-    if session[:error_msg]
-      @error = session[:error_msg]
+    if flash[:errors]
+      @error = flash[:errors]
     end
     slim :error
   end
@@ -87,7 +89,7 @@ class App < Sinatra::Base
   end
 
   post '/register' do
-    redirect_url = User.register(username: params['username'], email: params['email'], password: params['password'],password_confirmation: params['password_confirmation'], app: self)
+    redirect_url = User.register(params, app: self)
     redirect redirect_url
   end
 

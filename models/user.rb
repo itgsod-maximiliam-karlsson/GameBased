@@ -2,9 +2,17 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :username, String, required: true, unique: true
-  property :email, String,  required: true , unique: true
+  property :username, String, required: true, unique: true,
+           messages: {presence: "You must enter a username",
+                      is_unique: "Username is already in use"}
+  property :email, String,  required: true , unique: true,
+           messages: {
+               presence: "You must enter an Email address",
+               is_unique: "Email is already in use"}
+
   property :password, BCryptHash, required: true
+
+  validates_length_of :username, length: 4, message: "Username is too short"
 
   has n, :comments
   belongs_to :role
@@ -27,22 +35,19 @@ class User
     return redirect_url
   end
 
-  def self.register(username:, email:, password:,password_confirmation:, app:)
+  def self.register(params, app:)
 
-    user = User.create( username: username, email: email,  password: password, role: Role.first)
-    app.session[:user] = user.id
-    # if username.size < 3 or username.size > 15 or email.size < 5 or email.size > 32
-    #   app.session[:error_msg] = 'Username or Email are too short'
-    #   redirect_url = '/error'
-    # end
-    # if user.registered?(username) or user.registered_email?(email)
-    #   app.session[:error_msg] = 'Username or email is already in use'
-    #   redirect_url = '/error'
-    # end
-    # if password != password_confirmation
-    #   app.session[:error_msg] = 'Password does not match'
-    #   redirect_url = '/error'
-    # end
+    user = User.create( username: params['username'], email: params['email'],  password: params['password'], role: Role.first)
+    if params['password'] != params['password_confirmation']
+      app.flash[:errors] = ['Password does not match']
+      return '/error'
+    end
+    if user.valid?
+      app.session[:user] = user.id
+      redirect_url = app.back
+    else
+      app.flash[:errors] = user.errors.to_a.flatten
+    end
 
     return redirect_url
   end
