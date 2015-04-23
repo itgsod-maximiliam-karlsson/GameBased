@@ -2,8 +2,14 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :username, String, required: true, unique: true
-  property :email, String,  required: true , unique: true
+  property :username, String, required: true, unique: true,
+           messages: {presence: "You must enter a username",
+                      is_unique: "Username is already in use"}
+  property :email, String,  required: true , unique: true,
+           messages: {
+               presence: "You must enter an Email address",
+               is_unique: "Email is already in use"}
+
   property :password, BCryptHash, required: true
 
   has n, :comments
@@ -17,16 +23,19 @@ class User
           app.session[:user] = user.id
           redirect_url = '/'
         else
-          #app.flash[:error] = "#Ä€WKÄEFKDÖÄFKd"
-          redirect_url = '/error'
+          app.flash[:error] = "Wrong password!"
+          redirect_url = app.back
+
         end
       else
-        redirect_url = '/error'
+        app.flash[:error] = "Username does not exist"
+        redirect_url = app.back
       end
     end
     return redirect_url
   end
 
+<<<<<<< HEAD
   def self.register(username:, email:, password:,password_confirmation:, app:)
 
     user = User.create( username: username, email: email,  password: password, role: Role.first)
@@ -44,6 +53,21 @@ class User
     #   app.session[:error_msg] = 'Password does not match'
     #   redirect_url = '/error'
     # end
+=======
+  def self.register(params:, app:)
+    user = User.create(username: params['username'],
+                       email: params['email'],
+                       password: params['password'],
+                       role: Role.first)
+    if user.valid?
+      app.session[:user] = user.id
+      # redirect_url = app.back
+      redirect_url = '/'
+    else
+      app.flash[:errors] = user.errors.to_a.flatten
+      redirect_url = app.back
+    end
+>>>>>>> origin/master
 
     return redirect_url
   end
