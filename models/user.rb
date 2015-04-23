@@ -31,14 +31,15 @@ class User
 
     user = User.create( username: username, email: email,  password: password, role: Role.first)
     app.session[:user] = user.id
-    # if username.size < 3 or username.size > 15 or email.size < 5 or email.size > 32
-    #   app.session[:error_msg] = 'Username or Email are too short'
-    #   redirect_url = '/error'
-    # end
+    if username.size < 3 or username.size > 15 or email.size < 5 or email.size > 32
+      app.session[:error_msg] = 'Username or Email are too short'
+      redirect_url = '/error'
+    end
     # if user.registered?(username) or user.registered_email?(email)
     #   app.session[:error_msg] = 'Username or email is already in use'
     #   redirect_url = '/error'
     # end
+
     # if password != password_confirmation
     #   app.session[:error_msg] = 'Password does not match'
     #   redirect_url = '/error'

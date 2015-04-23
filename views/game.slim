@@ -45,22 +45,23 @@ div id='container'
     h3 Information
     p class='description' #{@game.description}
     h3 User Reviews
-    form#signupform.form-horizontal role="form" action='/games/#{@game.id}/#{@game.name}' method='post'
-      .form-group
-        label.col-md-3.control-label for="text"  Review
-        .col-md-9
-          input.form-control name="text" placeholder="text" type="text"
-      .form-group
-        label.col-md-3.control-label for="points"  Points 1-10
-        .col-md-9
-          input.form-control name="points" placeholder="points" type="text"
-      ul
-        -for comment in @comments
-          h4 #{comment.user_id}
-          ul
-            li #{comment.comment}
-
-      button#btn-comment.btn.btn-info type="submit"
-        i.icon-hand-right
-        |Write Review
-
+    -if session[:user]
+      form#signupform.form-horizontal role="form" action='/games/#{@game.id}/#{@game.name}' method='post'
+        .form-group
+          label.col-md-3.control-label for="text"  Review
+          .col-md-9
+            input.form-control name="text" placeholder="text" type="text"
+        .form-group
+          label.col-md-3.control-label for="points"  Points 1-10
+          .col-md-9
+            input.form-control name="points" placeholder="points" type="text"
+        button#btn-comment.btn.btn-info type="submit"
+          i.icon-hand-right
+          |Write Review
+    -else
+      a href='/login' Login to write a comment
+    ul
+      -for comment in @comments
+        h4 #{User.get(comment.user_id).username}
+        ul
+          li #{comment.comment}

@@ -40,10 +40,10 @@ class App < Sinatra::Base
 
   post '/games/:id/:name' do
     @game = Game.first(id: params[:id])
-    user_id = @user.id
+    id = @user.id
     text = params['text']
     points = params['points']
-    Comment.create( comment: text, points: points, game_id: params[:id], user_id: user_id )
+    Comment.create( comment: text, points: points, game_id: params[:id], user_id: id )
     redirect back
   end
 
